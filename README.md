@@ -9,6 +9,6 @@ This repository serves the purpose of automating the setup of a WSL Ubuntu subsy
 
 ## Execution
 > Note `-K` as it will allow Ansible's become tag to operate. 
-```sh
-cd wsl-setup && ansible-playbook -K playbook.yml
-```
+	```sh
+	cd wsl-setup && ansible-playbook -K playbook.yml
+	```
