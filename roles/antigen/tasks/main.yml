@@ -1,5 +1,5 @@
 - name: Install Autosuggestions
-  become: true
+  become: false
   get_url:
     url: https://git.io/antigen
     dest: "/home/{{ session_user }}/antigen.zsh"

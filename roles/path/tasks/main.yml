@@ -1,0 +1,7 @@
+- name: Add Ansible to zsh path
+  lineinfile:
+          path: ~/.zshrc
+          line: 'PATH="$PATH:/home/{{ session_user }}/.local/bin"'
+          state: present
+          backup: yes
+

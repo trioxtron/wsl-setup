@@ -1,4 +1,5 @@
-- name: Install 
+- name: Install
+  become: true 
   apt: 
     name: vim
     state: latest
