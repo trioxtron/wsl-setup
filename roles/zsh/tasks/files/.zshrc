@@ -13,6 +13,16 @@ compinit
 
 unsetopt BEEP
 
+alias la="ls -la"
+alias ..="cd .."
+alias apt="sudo apt"
+alias svim="sudo vim"
+alias ports="netstat -tulanp"
+alias gopi="ssh pi@192.168.2.113"
+alias explorer="explorer.exe"
+alias su="sudo -i"
+
+
 cd
 
 eval "$(starship init zsh)"
