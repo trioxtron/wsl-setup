@@ -7,6 +7,8 @@ This repository serves the purpose of automating the setup of a WSL Ubuntu subsy
 	apt install -y python3-pip && python3 -m pip install ansible
 	```
 
-## Instruction
+## Execution
 > Note `-K` as it will allow Ansible's become tag to operate. 
-```cd wsl-setup && ansible-playbook -K playbook.yml```
+```sh
+cd wsl-setup && ansible-playbook -K playbook.yml
+```
