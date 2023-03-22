@@ -1,0 +1,15 @@
+- name: update apt packages
+  become: yes
+  apt: update_cache=yes
+      force_apt_get=yes
+      cache_valid_time=3600
+
+- name: upgrade apt packages
+  become: yes
+  apt:
+      upgrade: yes
+
+- name: remove non-required dependencies
+  become: yes
+  apt:
+      autoremove: yes

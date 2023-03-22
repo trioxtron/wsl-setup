@@ -1,0 +1,20 @@
+- name: Update Container
+  docker_container:
+    name: filebrowser # name of the container
+    image: "filebrowser/filebrowser:s6" # image to be pulled - docker syntax
+    pull: true # pull: always pull the latest image version, otherwise it'll only pull image when it's missing
+    state: present # Ansible core state attribute: absent -> stop and remove container // present -> check for container, if inexistent -> create container or update container // stopped // started
+    restart_policy: unless-stopped # define restart conditions
+    volumes: # create or mount the volumes in - docker syntax
+      - "{{ filebrowser_data }}:/srv"
+      - filebrwoser-db:/database
+      - filebrowser-config:/config
+    # network_mode: host # connect container to a network, choices: bridge, host, none, container:<name|id>
+    ports: # specify forwarding ports from container to host network // original name: published_ports
+      - 8080:80
+  when: ansible_os_family == "Debian"
+
+- name: Start Container
+  docker_container:
+    name: filebrowser
+    state: started

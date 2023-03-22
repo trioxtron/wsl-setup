@@ -1,0 +1,14 @@
+- name: Install Starship
+  become: true
+  shell: sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -f
+
+- name: Create .config dir
+  file:
+    path: ~/.config
+    state: directory
+
+- name: Copy config
+  copy:
+    src: files/starship.toml
+    dest: ~/.config/starship.toml
+    directory_mode: true

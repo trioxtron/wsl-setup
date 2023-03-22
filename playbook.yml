@@ -1,0 +1,16 @@
+- name: Setup
+  hosts: localhost
+  vars:
+    fzf_version: 0.32.1
+    session_user: "{{ ansible_user_id }}"
+
+  roles:
+    - apt
+    - vim
+    - git
+    - starship
+    - antigen
+    - fzf
+    - zsh
+    - docker
+    - filebrowser

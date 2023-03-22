@@ -1,0 +1,15 @@
+- name: Install zsh
+  apt:
+    name: zsh
+
+- name: Copy config
+  copy:
+    src: ../files/.zshrc
+    dest: ~/.zshrc 
+
+- name: Set zsh default shell
+  become: yes
+  user:
+    name: "{{ session_user }}"
+    shell: /bin/zsh
+

@@ -1,0 +1,46 @@
+format="$username$hostname$directory$git_branch$git_status$nodejs$cmd_duration$fill$memory_usage$localip$time$line_break$character"
+
+[fill]
+symbol = " "
+style = ""
+
+[username]
+format = '[\[$user\]](bg:#E7BBE3 black)'
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format =  "[@$hostname ](bg:#E7BBE3 black)"
+disabled = false
+
+[directory]
+format = "[ 📁 $path ](bg:white #000000)"
+
+[git_branch]
+symbol = ""
+format = "[ $symbol $branch ](bg:#03fc90 #7700ff)"
+
+[git_status]
+format = '([\[$all_status\]$ahead_behind ](bg:#03fc90 #ff0000))'
+
+[nodejs]
+format = "[ $symbol$version ](bg:white #00ff00)"
+
+[cmd_duration]
+format = "[ ⏰ $duration ](bg:blue white)"
+
+[memory_usage]
+disabled = false
+threshold = -1
+symbol = " "
+format = "[ $ram ](bg:#CBBAED black)"
+
+[localip]
+ssh_only = false
+format = "[ $localipv4 ](bg:#99cbf0 black)"
+disabled = false
+
+[time]
+disabled = false
+format = "[ 🕓 $time ](bg:white black)"
