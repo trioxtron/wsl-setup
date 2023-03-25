@@ -1,2 +1,2 @@
 require("noah.remap")
-requiere("noah.packer")
+require("noah.packer")

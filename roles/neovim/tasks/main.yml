@@ -32,7 +32,5 @@
 - name: Install Packer
   ansible.builtin.git:
     repo: 'https://github.com/wbthomason/packer.nvim'
-    dest: "{{ session_user }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
-  tags:
-    - install
-    - neovim
+    dest: "/home/{{ session_user }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    clone: yes
