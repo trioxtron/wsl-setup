@@ -12,7 +12,7 @@
 
 - name: Copy config files
   copy:
-      src: files/nvim
+      src: files/
       dest: ~/.config/nvim
 
 - name: Download neovim package
@@ -21,7 +21,6 @@
      dest: /tmp/neovim.deb
 
 - name: Install neovim
-  become: true
   apt:
       deb: /tmp/neovim.deb
 
@@ -31,8 +30,9 @@
       state: absent
 
 - name: Install Packer
-  become: true
   ansible.builtin.git:
-    repo: https://github.com/wbthomason/packer.nvim.git
-    dest: ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    clone: yes
+    repo: 'https://github.com/wbthomason/packer.nvim'
+    dest: "{{ session_user }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
+  tags:
+    - install
+    - neovim
