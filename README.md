@@ -4,7 +4,7 @@ This repository serves the purpose of automating the setup of a WSL Ubuntu subsy
 # Prerequisites
  - Ansible
 	```sh
-	apt install -y python3-pip && python3 -m pip install ansible
+	sudo apt install -y python3-pip && python3 -m pip install ansible
 	```
 
 ## Execution
