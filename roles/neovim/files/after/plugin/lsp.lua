@@ -3,12 +3,19 @@ local lsp = require('lsp-zero').preset({
     set_lsp_keymaps = true,
     manage_nvim_cmp = true,
     suggest_lsp_servers = false,
-    virtual_text = true,
 })
 local opts = { noremap = true, silent = true }
 
--- Activate virtual text
-
+-- Fix Undefined global 'vim'
+lsp.configure('lua-language-server', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+})
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -25,7 +32,10 @@ lsp.on_attach(function(_, bufnr)
     vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format() end, bufopts)
-    vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+    vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, bufopts)
+    vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, bufopts)
+    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, bufopts)
+    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, bufopts)
 end)
 
 lsp.setup()
@@ -33,7 +43,7 @@ lsp.setup()
 vim.diagnostic.config({
     virtual_text = {
         source = "always",
-        prefix = '●',
+        prefix = '□',
     },
     severity_sort = true,
     float = {
