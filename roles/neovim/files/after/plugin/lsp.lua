@@ -7,7 +7,7 @@ local lsp = require('lsp-zero').preset({
 local opts = { noremap = true, silent = true }
 
 -- Fix Undefined global 'vim'
-lsp.configure('lua-language-server', {
+lsp.configure('lua_lsp', {
     settings = {
         Lua = {
             diagnostics = {

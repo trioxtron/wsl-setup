@@ -41,5 +41,6 @@ return require('packer').startup(function(use)
         }
     }
     use { 'folke/trouble.nvim' }
+    use { "folke/zen-mode.nvim" }
     use { 'feline-nvim/feline.nvim' }
 end)
