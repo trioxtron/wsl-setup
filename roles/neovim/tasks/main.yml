@@ -21,6 +21,7 @@
      dest: /tmp/neovim.deb
 
 - name: Install neovim
+  become: true
   apt:
       deb: /tmp/neovim.deb
 
