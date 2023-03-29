@@ -17,6 +17,8 @@ return require('packer').startup(function(use)
     use('tpope/vim-fugitive')
     use('nvim-tree/nvim-tree.lua')
     use('nvim-tree/nvim-web-devicons')
+    use('christoomey/vim-tmux-navigator')
+    use('numToStr/Comment.nvim')
 
     use {
         'VonHeikemen/lsp-zero.nvim',
