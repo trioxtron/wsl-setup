@@ -1,0 +1,22 @@
+- name: Install tmux
+  become: true
+  apt:
+    pkg: tmux
+    state: present
+
+- name: Copy tmux config
+  copy:
+    src: .tmux.conf
+    dest: "/home/{{ session_user }}/.tmux.conf"
+
+- name: Create .tmux file in home directory
+  file:
+    state: directory
+    path: ~/.tmux/plugins
+    recurse: true
+
+- name: Clone plugin manager
+  git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: ~/.tmux/plugins/tpm
+    depth: "1"

@@ -1,0 +1,37 @@
+- name: Install curl
+  become: true
+  apt:
+      name: curl
+      state: latest
+
+- name: Create .config dir
+  file:
+      dest: ~/.config/nvim
+      state: directory
+      recurse: true
+
+- name: Copy config files
+  copy:
+      src: files/
+      dest: ~/.config/nvim
+
+- name: Download neovim package
+  get_url:
+     url: "https://github.com/neovim/neovim/releases/download/v{{ neovim_version }}/nvim-linux64.deb"
+     dest: /tmp/neovim.deb
+
+- name: Install neovim
+  become: true
+  apt:
+      deb: /tmp/neovim.deb
+
+- name: Remove neovim.deb file
+  file:
+      path: /tmp/neovim.deb
+      state: absent
+
+- name: Install Packer
+  ansible.builtin.git:
+    repo: 'https://github.com/wbthomason/packer.nvim'
+    dest: "/home/{{ session_user }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    clone: yes

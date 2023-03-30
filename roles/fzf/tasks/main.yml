@@ -4,6 +4,7 @@
     version: "{{ fzf_version }}"
     dest: ~/.fzf
     depth: 1
+    force: true
 
 - name: Install fzf
   shell: ~/.fzf/install --completion --no-update-rc --key-bindings
