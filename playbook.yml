@@ -2,6 +2,7 @@
   hosts: localhost
   vars:
     fzf_version: 0.32.1
+    neovim_version: 0.8.3
     session_user: "{{ ansible_user_id }}"
 
   roles:
@@ -12,4 +13,9 @@
     - antigen
     - fzf
     - zsh
+    - ripgrep
     - path
+    - neovim
+    - unzip
+    - golang
+    - tmux
