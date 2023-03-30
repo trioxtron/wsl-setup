@@ -13,8 +13,9 @@
     - antigen
     - fzf
     - zsh
-    - ripgrep
     - path
+    - ripgrep
+    - etherwake
     - neovim
     - unzip
     - golang
