@@ -1,6 +1,17 @@
-- name: Install java JDK
+- name: Create dir
+  file:
+    path: "/home/{{ session_user }}/.local/bin/jdk.tar"
+    state: directory
+
+- name: Download java JDK
   become: true
-  apt: 
-    pkg: default-jdk
-    state: present
+  ansible.builtin.get_url:
+    url: https://download.oracle.com/java/20/latest/jdk-20_linux-x64_bin.tar.gz
+    dest: "/etc/jdk.tar.gz"
+    
+- name: Unarchive jdk"
+  become: true
+  ansible.builtin.unarchive: 
+    src: "/etc/jdk.tar.gz"
+    dest: "/home/{{ session_user }}/.local/bin/jdk.tar"
     
