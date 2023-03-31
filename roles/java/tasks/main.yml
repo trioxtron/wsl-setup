@@ -1,0 +1,6 @@
+- name: Install java JDK
+  become: true
+  apt: 
+    pkg: default-jdk
+    state: present
+    

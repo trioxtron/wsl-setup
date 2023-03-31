@@ -7,6 +7,8 @@
 
   roles:
     - apt
+
+      # Terminal workflow
     - vim
     - git
     - starship
@@ -14,9 +16,14 @@
     - fzf
     - zsh
     - path
-    - ripgrep
-    - etherwake
     - neovim
-    - unzip
-    - golang
     - tmux
+    - ripgrep
+    - unzip
+
+    # Other packages
+    - etherwake
+
+    # Languages
+    - golang
+    - java
