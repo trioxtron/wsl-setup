@@ -1,0 +1,5 @@
+- name: Install npm
+  become: true
+  apt:
+    pkg: npm
+    state: present

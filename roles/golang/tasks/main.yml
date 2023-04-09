@@ -6,6 +6,5 @@
 - name: Install golang
   become: true
   apt: 
-    update_cache: true
     pkg:
       - golang
