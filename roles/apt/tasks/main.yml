@@ -13,3 +13,9 @@
   become: yes
   apt:
       autoremove: yes
+
+- name: Install sofware properties for 'add-apt-repositories'
+  become: yes
+  apt: 
+    pkg: software-properties-common
+    state: present

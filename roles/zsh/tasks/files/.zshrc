@@ -22,6 +22,7 @@ alias gopi="ssh pi@192.168.2.113"
 alias explorer="explorer.exe"
 alias su="sudo -i"
 alias kansi="ansible-playbook -K"
+alias c="clear"
 
 cd
 

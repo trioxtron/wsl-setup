@@ -6,7 +6,7 @@
 
 - name: Copy tmux config
   copy:
-    src: .tmux.conf
+    src: ../files/.tmux.conf
     dest: "/home/{{ session_user }}/.tmux.conf"
 
 - name: Create .tmux file in home directory

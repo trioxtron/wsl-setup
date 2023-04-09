@@ -2,9 +2,17 @@ local lsp = require('lsp-zero').preset({
     name = 'recommended',
     set_lsp_keymaps = true,
     manage_nvim_cmp = true,
-    suggest_lsp_servers = false,
+    suggest_lsp_servers = true,
 })
 local opts = { noremap = true, silent = true }
+
+lsp.ensure_installed({
+    'tsserver',
+    'gopls',
+    'tailwindcss',
+    'lua_ls',
+    'yamlls',
+})
 
 -- Fix Undefined global 'vim'
 lsp.configure('lua_lsp', {
