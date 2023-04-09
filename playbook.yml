@@ -23,7 +23,6 @@
 
     # Other packages
     - etherwake
-    - npm
 
     # Languages
     - golang
