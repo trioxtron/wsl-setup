@@ -14,9 +14,9 @@
         name: docker
   when: not docker_installed
 
-- name: Enable and Restart
-  systemd:
-    name: docker
-    enabled: true
-    state: restarted
-    daemon_reload: true
+# - name: Enable and Restart
+#   systemd:
+#     name: docker
+#     enabled: true
+#     state: restarted
+#     daemon_reload: true
