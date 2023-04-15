@@ -5,3 +5,9 @@
           state: present
           backup: yes
 
+- name: Add Homebrew to zsh path
+  lineinfile:
+          path: ~/.zshrc
+          line: 'PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"'
+          state: present
+          backup: yes

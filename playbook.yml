@@ -15,7 +15,6 @@
     - antigen
     - fzf
     - zsh
-    - path
     - neovim
     # - tmux
     - ripgrep
@@ -24,6 +23,10 @@
 
     # Other packages
     - etherwake
+    - homebrew
+
+    # configs
+    - path
 
     # Languages
     - golang

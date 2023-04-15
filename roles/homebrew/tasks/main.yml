@@ -1,0 +1,14 @@
+- name: Create dir
+  become: true
+  file:
+    path: "/etc/homebrew"
+    state: directory
+
+- name: Download Homebrew
+  become: true
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+    dest: "/etc/homebrew/"
+
+- name: Install Homebrew
+  script: /etc/homebrew/install.sh
