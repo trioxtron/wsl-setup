@@ -25,6 +25,15 @@ lsp.configure('lua_lsp', {
     }
 })
 
+-- Fix key orderning issue
+lsp.configure("yamlls", {
+  settings = {
+    yaml = {
+      keyOrdering = false
+    }
+  }
+})
+
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
