@@ -17,13 +17,13 @@
     - zsh
     - path
     - neovim
-    - tmux
+    # - tmux
     - ripgrep
     - unzip
+    - docker
 
     # Other packages
     - etherwake
-    - npm
 
     # Languages
     - golang

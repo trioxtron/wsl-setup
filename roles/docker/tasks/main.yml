@@ -1,0 +1,22 @@
+- name: Gather package facts
+  ansible.builtin.package_facts:
+
+- name: try if Docker is installed
+  set_fact:
+    docker_installed: "{{ 'docker-ce' in ansible_facts.packages.keys() }}"
+
+- block:
+    - name: Install
+      shell: "curl -sSL https://get.docker.com | sh"
+
+    - name: Install docker pip package
+      pip:
+        name: docker
+  when: not docker_installed
+
+- name: Enable and Restart
+  systemd:
+    name: docker
+    enabled: true
+    state: restarted
+    daemon_reload: true
