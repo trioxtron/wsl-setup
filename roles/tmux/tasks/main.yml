@@ -1,8 +1,6 @@
 - name: Install tmux
-  become: true
-  apt:
-    pkg: tmux
-    state: present
+  community.general.homebrew:
+    name: tmux
 
 - name: Copy tmux config
   copy:

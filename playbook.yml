@@ -6,6 +6,9 @@
     session_user: "{{ ansible_user_id }}"
 
   roles:
+    # Other packages
+    - etherwake
+    - homebrew
     - apt
 
       # Terminal workflow
@@ -16,14 +19,10 @@
     - fzf
     - zsh
     - neovim
-    # - tmux
     - ripgrep
     - unzip
     - docker
-
-    # Other packages
-    - etherwake
-    - homebrew
+    - tmux
 
     # configs
     - path
