@@ -1,30 +1,32 @@
-vim.cmd [[packadd packer.nvim]]
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-return require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim'
+require("lazy").setup({
+    spec = "noah.lazy",
+    change_detection = { notify = false }
+})
 
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
-        requires = { { 'nvim-lua/plenary.nvim' } }
-    }
 
-    use("catppuccin/nvim")
+--[[
+require("lazy").setup({
+    {
+      "stevearc/oil.nvim",
+      opts = {},
+      -- Optional dependencies
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
 
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-    use('nvim-treesitter/playground')
-    use('theprimeagen/harpoon')
-    use('mbbill/undotree')
-    use('nvim-tree/nvim-tree.lua')
-    use('nvim-tree/nvim-web-devicons')
-    use('christoomey/vim-tmux-navigator')
-    use('numToStr/Comment.nvim')
-    use('ThePrimeagen/vim-be-good')
-
-    -- Git integration
-    use('tpope/vim-fugitive')
-    use('lewis6991/gitsigns.nvim')
-
-    use {
+    {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
         requires = {
@@ -46,7 +48,5 @@ return require('packer').startup(function(use)
             { 'rafamadriz/friendly-snippets' }, -- Optional
         }
     }
-    use { 'folke/trouble.nvim' }
-    use { "folke/zen-mode.nvim" }
-    use { 'feline-nvim/feline.nvim' }
-end)
+}, {})
+--]]

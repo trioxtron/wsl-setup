@@ -1,3 +1,4 @@
 require("noah.remap")
-require("noah.packer")
 require("noah.set")
+
+require("noah.lazy_setup") 

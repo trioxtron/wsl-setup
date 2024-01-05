@@ -7,10 +7,11 @@ local lsp = require('lsp-zero').preset({
 local opts = { noremap = true, silent = true }
 
 lsp.ensure_installed({
+    'tsserver',
     'gopls',
+    'tailwindcss',
     'lua_ls',
     'yamlls',
-    'html',
 })
 
 -- Fix Undefined global 'vim'
