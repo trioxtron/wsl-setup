@@ -15,20 +15,18 @@
       src: files/
       dest: ~/.config/nvim
 
-- name: Download neovim package
-  become: true
-  get_url:
-     url: "https://github.com/neovim/neovim/releases/download/v{{ neovim_version }}/nvim.appimage"
-     dest: /usr/sbin/nvim
-     mode: +x
+- block:
+  - name: Require FUSE
+    become: true
+    apt:
+      name: fuse
+      state: latest
 
-- name: Remove neovim.deb file
-  file:
-      path: /tmp/neovim.deb
-      state: absent
+  - name: Download neovim package
+    become: true
+    get_url:
 
-- name: Install Packer
-  ansible.builtin.git:
-    repo: 'https://github.com/wbthomason/packer.nvim'
-    dest: "/home/{{ session_user }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
-    clone: yes
+      url: "https://github.com/neovim/neovim/releases/download/v{{ neovim_version }}/nvim.appimage"
+      dest: /usr/sbin/nvim
+      mode: +x
+  when: ansible_os_family == "Debian"
