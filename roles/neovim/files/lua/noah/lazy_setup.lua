@@ -18,25 +18,3 @@ require("lazy").setup({import = "noah.plugins"}, {
 	},
     change_detection = { notify = false }
 })
-
-
---[[
-require("lazy").setup({
-    {
-      "stevearc/oil.nvim",
-      opts = {},
-      -- Optional dependencies
-      dependencies = { "nvim-tree/nvim-web-devicons" },
-    },
-
-    {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v1.x',
-        requires = {
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' },             -- Required
-
-        }
-    }
-}, {})
---]]

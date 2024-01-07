@@ -1,6 +1,5 @@
 return {
     'hrsh7th/nvim-cmp',
-    tag = "0.5.0",
     event = "InsertEnter",
     dependencies = {
         'hrsh7th/cmp-buffer',
