@@ -1,0 +1,11 @@
+- name: Download templ
+  become: true
+  ansible.builtin.get_url:
+    url: "https://github.com/a-h/templ/releases/download/v{{ templ_version }}/templ_Linux_x86_64.tar.gz"
+    dest: /tmp/templ.tar.gz
+
+- name: Unarchive templ
+  become: true
+  ansible.builtin.unarchive: 
+    src: "/tmp/templ.tar.gz"
+    dest: "/home/{{ session_user }}/.local/bin"

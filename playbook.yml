@@ -3,6 +3,7 @@
   vars:
     fzf_version: 0.32.1
     neovim_version: 0.9.5
+    templ_version: 0.2.513
     session_user: "{{ ansible_user_id }}"
 
   roles:
@@ -29,4 +30,5 @@
 
     # Languages
     - golang
+    - templ # Go Framework
     #- java
