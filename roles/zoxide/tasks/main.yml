@@ -1,0 +1,9 @@
+- name: Download zoxide
+  get_url:
+    url: "https://github.com/ajeetdsouza/zoxide/releases/download/v{{ zoxide_version }}/zoxide_{{ zoxide_version }}_amd64.deb"
+    dest: /tmp/zoxide.deb
+
+- name: Install zoxide
+  become: true
+  apt: 
+    deb: /tmp/zoxide.deb

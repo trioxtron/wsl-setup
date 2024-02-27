@@ -27,6 +27,7 @@ alias c="clear"
 cd
 
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 
 source ~/antigen.zsh
 
