@@ -29,7 +29,7 @@
     - tmux
 
     # configs
-    - path
+    #- path
 
     # Languages
     - golang

@@ -13,7 +13,7 @@ compinit
 
 unsetopt BEEP
 
-alias la="ls -la"
+alias la="ls -lah"
 alias ..="cd .."
 alias apt="sudo apt"
 alias svim="sudo vim"
@@ -21,9 +21,11 @@ alias ports="netstat -tulanp"
 alias gopi="ssh pi@192.168.2.113"
 alias explorer="explorer.exe"
 alias su="sudo -i"
-alias kansi="ansible-playbook -K"
 alias c="clear"
 alias py="python3"
+
+alias vim="nvim"
+alias n="nvim"
 
 cd
 
@@ -56,3 +58,9 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+PATH="$PATH:/home/joker/.local/bin"
+PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
+
+# Start with tmux
+[[ ! -v TMUX ]] && tmux
