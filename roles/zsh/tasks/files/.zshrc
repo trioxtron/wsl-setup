@@ -35,6 +35,7 @@ eval "$(zoxide init zsh)"
 source ~/antigen.zsh
 
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
